@@ -2,43 +2,17 @@
 # http://projecteuler.net/index.php?section=problems&id=3
 import math
 
-N = 600851475143
-
-prime = [2, 3]
-def next_prime():
-   x = prime[len(prime)-1] + 2
-   sqrtx = math.sqrt(x)
+def prime_factors(n):
+   primes = []
+   x = 2
+   m = n
    while True:
-      is_prime = True
-      for i in prime:
-         if i > sqrtx:
-            break
-         if x % i == 0:
-            is_prime = False
-            break
-      if is_prime :
-         prime.append(x)
-         return x
-      else :
-         x+=2
-         
-def make_primes(n):
-   while next_prime() < (n/2): continue
-      
+      if m == 1 : break
+      if m % x == 0 :
+         primes.append(x)
+         while (m % x == 0) : m /= x
+      x+=1
+   return primes
 
-def find_prime_factors(n):
-   rv = []
-   make_primes(n)
-   for p in prime:
-      if n % p == 0:
-         rv.append(p)
-   return rv
-   
-n_primes = find_prime_factors(100)
-print n_primes
-sum = 0
-for i in n_primes:
-   sum += i
-print sum
-
-
+print prime_factors(13195)
+print prime_factors(600851475143)
