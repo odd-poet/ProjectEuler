@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# http://projecteuler.net/index.php?section=problems&id=4
+# http://projecteuler.net/index.php?section=problems&id=5
 from math import *
 
 def prime_factors(n):
