@@ -27,8 +27,7 @@ def nnnXnnn(primes):
     """주어진 소인수 배열을 이용하여 두개의 세자리 정수를 구한다.
     
     return : 세자리 두 정수
-	 세자리 두 정수를 구하지 못할 경우 None을 리턴한다.
-	 
+        세자리 두 정수를 구하지 못할 경우 None을 리턴한다.
     """
     nm = (1, 1)
     primes.sort(reverse=True)
@@ -42,7 +41,8 @@ for n in range(10**6, 10**4, -1):
         primes = prime_factors(n)
         nxn = nnnXnnn(primes)
         if nxn:
-            print "%s = %s x %s" % (n, nxn[0], nxn[1])
+            
+            print n, " = %s x %s" % nxn
             break
 
 
