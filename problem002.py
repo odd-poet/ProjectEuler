@@ -6,20 +6,22 @@ class FiboSeq:
       self.pprev_value = 0
       self.prev_value = 1
       
+   
+   def __iter__(self):
+      return self
+   
    def next(self):
       next_value = self.prev_value + self.pprev_value
       self.pprev_value = self.prev_value
       self.prev_value = next_value
-      return next_value
-   
-   def value(self):
-      return self.prev_value 
-   
+      return self.pprev_value
 
-fib = FiboSeq()
-sum = 0
-while fib.next() < 4000000 :
-   if fib.value() % 2 ==0:
-      sum += fib.value()
+def solve(n):
+   sum =0
+   for f in FiboSeq():
+      if f > n: break
+      if f % 2 ==0 : sum += f
+   return sum
    
-print sum 
+import profile
+profile.run('print solve(4000000)')
